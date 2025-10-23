@@ -5,19 +5,37 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-
+import androidx.compose.ui.tooling.preview.Preview
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            StudyMessage("Aprendendo Jetpack Compose")
+            StudyCard(
+                msg = StudyMessage(
+                    author = "Beatris",
+                    body = "Estou aprendendo sobre funções Composable no Jetpack Compose!"
+                )
+            )
         }
     }
 }
 
+data class StudyMessage(val author: String, val body: String)
+
 @Composable
-fun StudyMessage(mensagem: String) {
-    Text(text = " Estudo do dia: $mensagem!")
+fun StudyCard(msg: StudyMessage) {
+    Text(text = "Autora: ${msg.author}")
+    Text(text = msg.body)
 }
 
+@Preview(showBackground = true)
+@Composable
+fun PreviewStudyCard() {
+    StudyCard(
+        msg = StudyMessage(
+            author = "Beatris",
+            body = "O aprendizado de hoje é sobre como criar interfaces modernas com Compose!"
+        )
+    )
+}
