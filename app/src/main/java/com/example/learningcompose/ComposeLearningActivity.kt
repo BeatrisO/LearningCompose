@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.*
 import com.example.learningcompose.ui.theme.LearningComposeTheme
 
-class MainActivity : ComponentActivity() {
+class ComposeLearningActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
